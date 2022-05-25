@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Cafes</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="body">
+    <div class="tag">
+        <h1 class="all">All Cafes</h1>
+    </div>
+    <div class="items">
+        <table border=1 frame=void rules=rows>
+            <tr>
+            {% for i in header: %}
+                <th>{{ i }}</th>
+            {% endfor %}
+            </tr>
+            {% for cafe in cafe_list: %}
+            <tr style="background-image: url{{cafe[2]}}">
+                {% for i in cafe: %}
+                {% if i[0:4] == "http" %}
+                <td><a href="{{i}}">Maps Link</a></td>
+                {% elif i == "True" %}
+                <td>Yes</td>
+                {% elif i == "False" %}
+                <td>No</td>
+                {% else %}
+                <td>{{i}}</td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+
+            {% endfor %}
+        </table>
+
+    </div>
+    <div class="return">
+        <a id="whoa" href="{{url_for('home')}}">Return to index page</a>
+        <a href="{{url_for('add')}}">Add Cafe</a>
+    </div>
+
+
+</body>
+</html>

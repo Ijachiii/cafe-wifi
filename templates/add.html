@@ -1,0 +1,19 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Cafe</title>
+    <link rel="stylesheet", href="static/css/style.css">
+</head>
+<body>
+    <h1 class="add">Add A New Cafe</h1>
+    <div class="form">
+            {{ wtf.quick_form(form, novalidate=true) }}
+    </div>
+
+<div class="return">
+        <a id="whoa" href="{{url_for('cafes')}}">Show Cafes</a>
+    </div>
+</body>
+</html>
